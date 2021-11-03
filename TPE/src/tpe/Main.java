@@ -34,7 +34,7 @@ public class Main {
 		
 		c2.agregarAlEquipo(p2);
 		
-		System.out.println(c.organizarElementos(new CompararIdiomas()));
+		System.out.println(c.organizarIdiomas());
 		
 		System.out.println(c2.imprimirParticipantes());
 		

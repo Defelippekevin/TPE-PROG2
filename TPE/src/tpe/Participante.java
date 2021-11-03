@@ -10,7 +10,6 @@ public class Participante {
 	private ArrayList<String> instrumentos;
 
 	public Participante(String nombre, String apellido, int edad) {
-		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.edad = edad;
