@@ -40,5 +40,12 @@ public class Cancion {
 	public void setLetra(String letra) {
 		this.letra = letra;
 	}
-
+	
+	public void agregarGeneroMusical(String genero) {
+		generosMusicales.add(genero);
+	}
+	
+	public void agregarInstrumento(String instrumento) {
+		instrumentosNecesarios.add(instrumento);
+	}
 }
