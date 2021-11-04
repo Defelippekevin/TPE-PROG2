@@ -38,6 +38,7 @@ public class Main {
 		
 		System.out.println(c2.imprimirParticipantes());
 		
+		//esto es una prueba para git Martin
 		
 	}
 
