@@ -2,8 +2,6 @@ package tpe;
 
 import java.util.ArrayList;
 
-import Criterios.Criterio;
-
 public class Produccion {
 	private ArrayList<Cancion> canciones;
 	private ArrayList<Coach> jurados;

@@ -4,6 +4,6 @@ import tpe.Participante;
 
 public abstract class Criterio {
 	
-	public abstract boolean Cumple(Participante p);
+	public abstract boolean cumple(Participante p);
 
 }

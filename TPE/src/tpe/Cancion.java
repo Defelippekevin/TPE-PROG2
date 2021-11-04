@@ -2,7 +2,6 @@ package tpe;
 
 import java.util.ArrayList;
 
-
 public class Cancion {
 	private String titulo, idioma, letra;
 	private ArrayList<String> generosMusicales;
@@ -40,11 +39,11 @@ public class Cancion {
 	public void setLetra(String letra) {
 		this.letra = letra;
 	}
-	
+
 	public void agregarGeneroMusical(String genero) {
 		generosMusicales.add(genero);
 	}
-	
+
 	public void agregarInstrumento(String instrumento) {
 		instrumentosNecesarios.add(instrumento);
 	}

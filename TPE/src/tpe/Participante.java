@@ -18,26 +18,24 @@ public class Participante {
 		this.instrumentos = new ArrayList<>();
 	}
 
-	
 	public void agregarIdioma(String idioma) {
-		if(!idiomas.contains(idioma)) {
+		if (!idiomas.contains(idioma)) {
 			idiomas.add(idioma);
 		}
 	}
-	
-	
+
 	public void agregarInstrumento(String instrumento) {
-		if(!instrumentos.contains(instrumento)) {
+		if (!instrumentos.contains(instrumento)) {
 			instrumentos.add(instrumento);
 		}
 	}
-	
+
 	public void agregarGeneroMusical(String generos) {
-		if(!generosPreferidos.contains(generos)) {
+		if (!generosPreferidos.contains(generos)) {
 			generosPreferidos.add(generos);
 		}
 	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -92,5 +90,5 @@ public class Participante {
 	public String toString() {
 		return this.getNombre();
 	}
-	
+
 }

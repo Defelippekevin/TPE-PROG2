@@ -2,7 +2,6 @@ package tpe;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 import Caracteres.Caracter;
 import Criterios.Criterio;
@@ -40,93 +39,84 @@ public class Coach {
 	public void setCaracter(Caracter caracter) {
 		this.caracter = caracter;
 	}
-	
-	public double promedioEdadParticipantes() {
-		double edad=0.0;
-		int contador=0;
-		
-		for(int i=0;i<participantes.size();i++) {
-			edad += participantes.get(i).getEdad();
-			contador++;
-			
-		}
-		
-		return edad / contador;
-	}
-	
-	
 
-	/*
-	public Participante seleccionarParticipante(Criterio c) { // Preguntar el miercoles
+	public double promedioEdadParticipantes() {
+		double edad = 0.0;
+		int contador = 0;
 
 		for (int i = 0; i < participantes.size(); i++) {
-			if (c.Cumple(participantes.get(i))) {
-				return participantes.get(i);
-			}
+			edad += participantes.get(i).getEdad();
+			contador++;
+
 		}
 
-		return null;
+		return edad / contador;
 	}
-	
-	*/
 
-	
-	public ArrayList<Participante> seleccionarParticipantes(Criterio c) { // QUEDA ESTA IMPLEMENTACION, QUEDA MEJOR 
-																		 // DE CARA A LA 2DA PARTE DEL TPE
+	/*
+	 * public Participante seleccionarParticipante(Criterio c) { // Preguntar el
+	 * miercoles
+	 * 
+	 * for (int i = 0; i < participantes.size(); i++) { if
+	 * (c.Cumple(participantes.get(i))) { return participantes.get(i); } }
+	 * 
+	 * return null; }
+	 * 
+	 */
+
+	public ArrayList<Participante> seleccionarParticipantes(Criterio c) { // QUEDA ESTA IMPLEMENTACION, QUEDA MEJOR
+																			// DE CARA A LA 2DA PARTE DEL TPE
 
 		ArrayList<Participante> participantesCumplen = new ArrayList<>();
 		for (int i = 0; i < participantes.size(); i++) {
-			if (c.Cumple(participantes.get(i))) {
+			if (c.cumple(participantes.get(i))) {
 				participantesCumplen.add(participantes.get(i));
 
 			}
 		}
 		return participantesCumplen;
 	}
-	
 
 	public ArrayList<String> organizarIdiomas() {
 		ArrayList<String> elementos = new ArrayList<>();
 		for (Participante p : participantes) {
-			for(int i=0;i<p.getIdiomas().size();i++) {
-				if(!elementos.contains(p.getIdiomas().get(i))){
+			for (int i = 0; i < p.getIdiomas().size(); i++) {
+				if (!elementos.contains(p.getIdiomas().get(i))) {
 					elementos.add(p.getIdiomas().get(i));
 				}
 			}
-			
+
 		}
 		return elementos;
 	}
 
-	
 	public ArrayList<String> organizarInstrumentos() {
 		ArrayList<String> elementos = new ArrayList<>();
 		for (Participante p : participantes) {
-			for(int i=0;i<p.getInstrumento().size();i++) {
-				if(!elementos.contains(p.getInstrumento().get(i))){
+			for (int i = 0; i < p.getInstrumento().size(); i++) {
+				if (!elementos.contains(p.getInstrumento().get(i))) {
 					elementos.add(p.getInstrumento().get(i));
 				}
 			}
-			
+
 		}
 		return elementos;
 	}
-	
+
 	public ArrayList<String> organizarGeneros() {
 		ArrayList<String> elementos = new ArrayList<>();
 		for (Participante p : participantes) {
-			for(int i=0;i<p.getGenero().size();i++) {
-				if(!elementos.contains(p.getGenero().get(i))){
+			for (int i = 0; i < p.getGenero().size(); i++) {
+				if (!elementos.contains(p.getGenero().get(i))) {
 					elementos.add(p.getGenero().get(i));
 				}
 			}
-			
+
 		}
 		Collections.sort(elementos);
 		return elementos;
 	}
-	
-	
+
 	public ArrayList<Participante> imprimirParticipantes() {
 		ArrayList<Participante> parti = new ArrayList<>();
 		for (Participante p : participantes) {

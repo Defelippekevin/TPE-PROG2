@@ -3,9 +3,8 @@ package Criterios;
 import tpe.Participante;
 
 public class CriterioOr extends Criterio {
-	
-	private Criterio c1,c2;
-	
+
+	private Criterio c1, c2;
 
 	public CriterioOr(Criterio c1, Criterio c2) {
 		super();
@@ -14,9 +13,9 @@ public class CriterioOr extends Criterio {
 	}
 
 	@Override
-	public boolean Cumple(Participante p) {
-		
-		return c1.Cumple(p) || c2.Cumple(p);
+	public boolean cumple(Participante p) {
+
+		return c1.cumple(p) || c2.cumple(p);
 	}
 
 }

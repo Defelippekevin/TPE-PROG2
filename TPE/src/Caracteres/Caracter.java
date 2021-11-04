@@ -1,6 +1,6 @@
 package Caracteres;
 
-import tpe.Coach;
+
 import tpe.Participante;
 
 public abstract class Caracter {

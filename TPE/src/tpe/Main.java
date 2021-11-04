@@ -2,7 +2,6 @@ package tpe;
 
 import Caracteres.CaracterExigente;
 import Caracteres.CaracterSimple;
-import Comparadores.CompararIdiomas;
 
 public class Main {
 
@@ -31,15 +30,12 @@ public class Main {
 		c.agregarAlEquipo(p1);
 		c.agregarAlEquipo(p2);
 
-		
 		c2.agregarAlEquipo(p2);
-		
+
 		System.out.println(c.organizarIdiomas());
-		
+
 		System.out.println(c2.imprimirParticipantes());
-		
-		
-		
+
 	}
 
 }

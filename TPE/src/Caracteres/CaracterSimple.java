@@ -1,6 +1,5 @@
 package Caracteres;
 
-import tpe.Coach;
 import tpe.Participante;
 
 public class CaracterSimple extends Caracter {
