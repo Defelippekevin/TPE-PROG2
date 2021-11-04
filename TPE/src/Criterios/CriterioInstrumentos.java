@@ -13,7 +13,7 @@ public class CriterioInstrumentos extends Criterio {
 
 	@Override
 	public boolean cumple(Participante p) {
-		return p.getInstrumento().contains(instrumento);
+		return p.getInstrumentos().contains(instrumento);
 	}
 
 }

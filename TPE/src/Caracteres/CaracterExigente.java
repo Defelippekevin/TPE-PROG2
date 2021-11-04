@@ -19,8 +19,8 @@ public class CaracterExigente extends Caracter {
 
 	@Override
 	public boolean aceptarArtista(Participante p) {
-		return p.getGenero().contains(generoMusical) && p.getIdiomas().contains(idioma)
-				&& p.getInstrumento().contains(instrumento);
+		return p.getGeneros().contains(generoMusical) && p.getIdiomas().contains(idioma)
+				&& p.getInstrumentos().contains(instrumento);
 	}
 
 }

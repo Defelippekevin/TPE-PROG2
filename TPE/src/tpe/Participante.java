@@ -73,14 +73,14 @@ public class Participante {
 		return copiaIdiomas;
 	}
 
-	public ArrayList<String> getGenero() {
+	public ArrayList<String> getGeneros() {
 
 		ArrayList<String> copiaGenero = new ArrayList<>(generosPreferidos);
 
 		return copiaGenero;
 	}
 
-	public ArrayList<String> getInstrumento() {
+	public ArrayList<String> getInstrumentos() {
 
 		ArrayList<String> copiaInstrumento = new ArrayList<>(instrumentos);
 

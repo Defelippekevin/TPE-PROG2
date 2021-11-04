@@ -93,9 +93,9 @@ public class Coach {
 	public ArrayList<String> organizarInstrumentos() {
 		ArrayList<String> elementos = new ArrayList<>();
 		for (Participante p : participantes) {
-			for (int i = 0; i < p.getInstrumento().size(); i++) {
-				if (!elementos.contains(p.getInstrumento().get(i))) {
-					elementos.add(p.getInstrumento().get(i));
+			for (int i = 0; i < p.getInstrumentos().size(); i++) {
+				if (!elementos.contains(p.getInstrumentos().get(i))) {
+					elementos.add(p.getInstrumentos().get(i));
 				}
 			}
 
@@ -106,9 +106,9 @@ public class Coach {
 	public ArrayList<String> organizarGeneros() {
 		ArrayList<String> elementos = new ArrayList<>();
 		for (Participante p : participantes) {
-			for (int i = 0; i < p.getGenero().size(); i++) {
-				if (!elementos.contains(p.getGenero().get(i))) {
-					elementos.add(p.getGenero().get(i));
+			for (int i = 0; i < p.getGeneros().size(); i++) {
+				if (!elementos.contains(p.getGeneros().get(i))) {
+					elementos.add(p.getGeneros().get(i));
 				}
 			}
 

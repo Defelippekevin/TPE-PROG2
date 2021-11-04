@@ -13,7 +13,7 @@ public class CriterioGenero extends Criterio {
 
 	@Override
 	public boolean cumple(Participante p) {
-		return p.getGenero().contains(genero);
+		return p.getGeneros().contains(genero);
 	}
 
 }
