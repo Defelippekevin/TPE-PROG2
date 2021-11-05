@@ -1,6 +1,6 @@
 package Criterios;
 
-import Sistema.Participante;
+import tpe.Participante;
 
 public class CriterioEdad extends Criterio {
 

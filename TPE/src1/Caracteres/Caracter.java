@@ -1,6 +1,7 @@
 package Caracteres;
 
-import Sistema.Participante;
+
+import tpe.Participante;
 
 public abstract class Caracter {
 

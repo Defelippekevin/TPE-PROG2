@@ -2,7 +2,7 @@ package Comparadores;
 
 import java.util.Comparator;
 
-import Sistema.Participante;
+import tpe.Participante;
 
 public class CompararIdiomas implements Comparator<Participante> {
 
