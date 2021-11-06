@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import Criterios.Criterio;
+
 public class GrupoMusical extends ElementoBanda {
 
 	private ArrayList<ElementoBanda> elementos;
@@ -53,6 +55,45 @@ public class GrupoMusical extends ElementoBanda {
 		idiomasS.clear();
 		idiomasS.addAll(sinRep);
 		return idiomasS;
+	}
+
+	@Override
+	public double getEdad() {
+		double total = 0.0;
+		int cantidadP = 0;
+		for (ElementoBanda e : elementos) {
+			total += e.getEdad();
+			cantidadP++;
+		}
+		return total / cantidadP;
+	}
+
+	public boolean tieneElementos() {
+		return !elementos.isEmpty();
+	}
+
+	@Override
+	public ElementoBanda getCopia(Criterio c) {
+		GrupoMusical grupoCopia = new GrupoMusical(this.getNombre());
+		for (ElementoBanda e : elementos) {
+			ElementoBanda copiaHijo = e.getCopia(c);
+			if (copiaHijo != null) {
+				grupoCopia.agregarElemento(e.getCopia(c));
+			}
+		}
+		if (grupoCopia.tieneElementos()) {
+			return grupoCopia;
+		} else {
+			return null;
+		}
+	}
+
+	public String toString() {
+		String nombre = "";
+		for (ElementoBanda e : elementos) {
+			nombre += " " + e.getNombre();
+		}
+		return this.getNombre() + nombre;
 	}
 
 }

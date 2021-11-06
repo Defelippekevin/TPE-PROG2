@@ -1,5 +1,6 @@
 package Criterios;
 
+import Sistema.ElementoBanda;
 import Sistema.Participante;
 
 public class CriterioAnd extends Criterio {
@@ -13,7 +14,7 @@ public class CriterioAnd extends Criterio {
 	}
 
 	@Override
-	public boolean cumple(Participante p) {
+	public boolean cumple(ElementoBanda p) {
 		return c1.cumple(p) && c2.cumple(p);
 
 	}

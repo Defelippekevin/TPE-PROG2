@@ -1,5 +1,6 @@
 package Criterios;
 
+import Sistema.ElementoBanda;
 import Sistema.Participante;
 
 public class CriterioEdad extends Criterio {
@@ -12,7 +13,7 @@ public class CriterioEdad extends Criterio {
 	}
 
 	@Override
-	public boolean cumple(Participante p) {
+	public boolean cumple(ElementoBanda p) {
 		return p.getEdad() > edad;
 	}
 

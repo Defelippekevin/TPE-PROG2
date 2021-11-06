@@ -1,9 +1,10 @@
 package Caracteres;
 
-import Sistema.Participante;
+import Sistema.ElementoBanda;
+
 
 public abstract class Caracter {
 
-	public abstract boolean aceptarArtista(Participante p);
+	public abstract boolean aceptarArtista(ElementoBanda p);
 
 }

@@ -1,6 +1,7 @@
 package Criterios;
 
-import Sistema.Participante;
+import Sistema.ElementoBanda;
+
 
 public class CriterioInstrumentos extends Criterio {
 
@@ -12,7 +13,7 @@ public class CriterioInstrumentos extends Criterio {
 	}
 
 	@Override
-	public boolean cumple(Participante p) {
+	public boolean cumple(ElementoBanda p) {
 		return p.getInstrumentos().contains(instrumento);
 	}
 

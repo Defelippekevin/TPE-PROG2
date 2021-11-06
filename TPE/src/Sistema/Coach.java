@@ -1,18 +1,15 @@
 package Sistema;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 
 import Caracteres.Caracter;
 import Criterios.Criterio;
 
-
-
 public class Coach {
 	private String nombre;
 	private Caracter caracter;
-	private ArrayList<Participante> participantes;
+	private ArrayList<ElementoBanda> participantes;
 
 	public Coach(String nombre, Caracter caracter) {
 		super();
@@ -21,7 +18,7 @@ public class Coach {
 		this.participantes = new ArrayList<>();
 	}
 
-	public void agregarAlEquipo(Participante p) {
+	public void agregarAlEquipo(ElementoBanda p) {
 		if (caracter.aceptarArtista(p)) {
 			participantes.add(p);
 		}
@@ -43,32 +40,38 @@ public class Coach {
 		this.caracter = caracter;
 	}
 
-//	public double promedioEdadParticipantes() {
-//		double edad = 0.0;
-//		int contador = 0;
-//		for (int i = 0; i < participantes.size(); i++) {
-//			edad += participantes.get(i).getEdad();
-//			contador++;
-//		return edad / contador;
-//	}
+	public double promedioEdadParticipantes() {
+		double edad = 0.0;
+		int contador = 0;
+		for (int i = 0; i < participantes.size(); i++) {
+			edad += participantes.get(i).getEdad();
+			contador++;
+		}
+		return edad / contador;
+	}
 
-
-	public ArrayList<Participante> seleccionarParticipantes(Criterio c) { // QUEDA ESTA IMPLEMENTACION, QUEDA MEJOR
-																			// DE CARA A LA 2DA PARTE DEL TPE
-
-		ArrayList<Participante> participantesCumplen = new ArrayList<>();
+	public ArrayList<ElementoBanda> seleccionarParticipantes(Criterio c) { 
+		ArrayList<ElementoBanda> participantesCumplen = new ArrayList<>();
 		for (int i = 0; i < participantes.size(); i++) {
 			if (c.cumple(participantes.get(i))) {
 				participantesCumplen.add(participantes.get(i));
-
 			}
 		}
 		return participantesCumplen;
 	}
 
+	public ArrayList<ElementoBanda> seleccionarParticipantes2(Criterio c) { 
+		ArrayList<ElementoBanda> participantesCumplen = new ArrayList<>();
+		for(ElementoBanda e:participantes) {
+			participantesCumplen.add(e.getCopia(c));
+		}
+		return participantesCumplen;
+	}
+	
+	
 	public ArrayList<String> organizarIdiomas() {
 		ArrayList<String> elementos = new ArrayList<>();
-		for (Participante p : participantes) {
+		for (ElementoBanda p : participantes) {
 			for (int i = 0; i < p.getIdiomas().size(); i++) {
 				if (!elementos.contains(p.getIdiomas().get(i))) {
 					elementos.add(p.getIdiomas().get(i));
@@ -81,7 +84,7 @@ public class Coach {
 
 	public ArrayList<String> organizarInstrumentos() {
 		ArrayList<String> elementos = new ArrayList<>();
-		for (Participante p : participantes) {
+		for (ElementoBanda p : participantes) {
 			for (int i = 0; i < p.getInstrumentos().size(); i++) {
 				if (!elementos.contains(p.getInstrumentos().get(i))) {
 					elementos.add(p.getInstrumentos().get(i));
@@ -94,7 +97,7 @@ public class Coach {
 
 	public ArrayList<String> organizarGeneros() {
 		ArrayList<String> elementos = new ArrayList<>();
-		for (Participante p : participantes) {
+		for (ElementoBanda p : participantes) {
 			for (int i = 0; i < p.getGeneros().size(); i++) {
 				if (!elementos.contains(p.getGeneros().get(i))) {
 					elementos.add(p.getGeneros().get(i));
@@ -106,15 +109,16 @@ public class Coach {
 		return elementos;
 	}
 
-	public ArrayList<Participante> imprimirParticipantes() {
-		ArrayList<Participante> parti = new ArrayList<>();
-		for (Participante p : participantes) {
+	public ArrayList<ElementoBanda> imprimirParticipantes() {
+		ArrayList<ElementoBanda> parti = new ArrayList<>();
+		for (ElementoBanda p : participantes) {
 			parti.add(p);
 		}
 		return parti;
 	}
 
-	// tenemos una lista de participantes, que tienen listas de idiomas... como
-	// traer los diferentes.
+	
+
+
 
 }

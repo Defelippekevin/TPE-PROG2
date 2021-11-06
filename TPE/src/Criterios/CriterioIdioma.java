@@ -1,5 +1,6 @@
 package Criterios;
 
+import Sistema.ElementoBanda;
 import Sistema.Participante;
 
 public class CriterioIdioma extends Criterio {
@@ -11,7 +12,7 @@ public class CriterioIdioma extends Criterio {
 	}
 
 	@Override
-	public boolean cumple(Participante p) {
+	public boolean cumple(ElementoBanda p) {
 		return p.getIdiomas().contains(idioma);
 	}
 

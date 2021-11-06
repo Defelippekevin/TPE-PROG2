@@ -1,6 +1,7 @@
 package Caracteres;
 
-import Sistema.Participante;
+import Sistema.ElementoBanda;
+
 
 //PREGUNTAR SI SE PUEDE HACER 
 public class CaracterExigente extends Caracter {
@@ -16,7 +17,7 @@ public class CaracterExigente extends Caracter {
 		this.idioma = idioma;
 	}
 
-	public boolean aceptarArtista(Participante p) {
+	public boolean aceptarArtista(ElementoBanda p) {
 		return p.getGeneros().contains(generoMusical) && p.getIdiomas().contains(idioma)
 				&& p.getInstrumentos().contains(instrumento);
 	}

@@ -1,21 +1,23 @@
 package Sistema;
 
-
 import java.util.ArrayList;
+
+import Criterios.Criterio;
 
 public class Participante extends ElementoBanda {
 
 	private String apellido;
-	private int edad;
+	private double edad;
 	private ArrayList<String> generosPreferidos;
 	private ArrayList<String> idiomas;
 	private ArrayList<String> instrumentos;
 
-	public Participante(String nombre, int edad) {
+	public Participante(String nombre, double edad) {
 		super(nombre);
 		this.generosPreferidos = new ArrayList<>();
 		this.idiomas = new ArrayList<>();
 		this.instrumentos = new ArrayList<>();
+		this.edad = edad;
 	}
 
 	public void agregarIdioma(String idioma) {
@@ -52,7 +54,7 @@ public class Participante extends ElementoBanda {
 		this.apellido = apellido;
 	}
 
-	public int getEdad() {
+	public double getEdad() {
 		return edad;
 	}
 
@@ -67,16 +69,13 @@ public class Participante extends ElementoBanda {
 	}
 
 	public ArrayList<String> getIdiomas() {
-
 		ArrayList<String> copiaIdiomas = new ArrayList<>(idiomas);
-
 		return copiaIdiomas;
 	}
 
 	public ArrayList<String> getGeneros() {
 
 		ArrayList<String> copiaGenero = new ArrayList<>(generosPreferidos);
-
 		return copiaGenero;
 	}
 
@@ -89,6 +88,12 @@ public class Participante extends ElementoBanda {
 		return this.getNombre();
 	}
 
-
+	@Override
+	public ElementoBanda getCopia(Criterio c) {
+		if(c.cumple(this)) {
+			return new Participante(this.getNombre(), this.getEdad());
+		}
+		return null;
+	}
 
 }

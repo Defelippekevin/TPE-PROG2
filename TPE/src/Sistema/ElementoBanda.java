@@ -2,6 +2,8 @@ package Sistema;
 
 import java.util.ArrayList;
 
+import Criterios.Criterio;
+
 public abstract class ElementoBanda {
 
 	protected String nombre;
@@ -12,8 +14,21 @@ public abstract class ElementoBanda {
 		this.nombre = nombre;
 	}
 	
-	
 	public abstract ArrayList<String> getGeneros();
+	
 	public abstract ArrayList<String> getInstrumentos();
+	
 	public abstract ArrayList<String> getIdiomas();
+	
+	public abstract ElementoBanda getCopia(Criterio c);
+	
+	public abstract double getEdad();
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	
+	
 }
