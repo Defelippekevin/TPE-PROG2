@@ -25,7 +25,9 @@ public class Main {
 
 		Participante p3 = new Participante("YAyo", 60);
 
-		Participante p4 = new Participante("Larry", 20);
+		Participante p4 = new Participante("Larry", 52);
+		
+		Participante p5 = new Participante("MOE", 51);
 
 		GrupoMusical banda1 = new GrupoMusical("BANDA 1");
 		
@@ -36,6 +38,7 @@ public class Main {
 		banda1.agregarElemento(p2);
 		banda1.agregarElemento(p3);
 		banda2.agregarElemento(p4);
+		banda2.agregarElemento(p5);
 
 		p1.agregarIdioma("Ingles");
 		p1.agregarIdioma("Español");
@@ -46,7 +49,7 @@ public class Main {
 		p2.agregarIdioma("Ingles");
 		p2.agregarIdioma("Español");
 		p2.agregarIdioma("Portugues");
-		p2.agregarGeneroMusical("JAZZ");
+		p2.agregarGeneroMusical("Rock");
 		p2.agregarInstrumento("Flauta");
 		p2.agregarInstrumento("Guitarra");
 		
@@ -58,13 +61,15 @@ public class Main {
 		p4.agregarGeneroMusical("Rock");
 		p4.agregarGeneroMusical("JAZZ");
 		p4.agregarInstrumento("Arpa");
+		
+		p5.agregarGeneroMusical("Rock");
 
 	
 		banda1.agregarElemento(banda2);
 
 		coach.agregarAlEquipo(banda1);
 		
-		//System.out.println(banda1.getGeneros());
+		System.out.println(banda2.getGeneros());
 		//System.out.println(banda1.getIdiomas());
 		//System.out.println(banda1.getInstrumentos());
 		//CONSULTAR PORQUE EXPLOTA CUANDO INTEGRAS BANDA VACIA
@@ -73,7 +78,7 @@ public class Main {
 		
 		//PREGUNTAR PORQUE NO AGREGA A LARRY
 		
-		Criterio cEdad = new CriterioEdad(18); 
+		Criterio cEdad = new CriterioEdad(51); 
 		Criterio cGenero = new CriterioGenero("Rock");
 		Criterio cIdioma = new CriterioIdioma("Ingles");
 		Criterio cInst = new CriterioInstrumentos("Guitarra");
@@ -82,7 +87,8 @@ public class Main {
 		Criterio cAnd2 = new CriterioAnd(cIdioma, cInst);
 		Criterio cFinal = new CriterioAnd(cAnd1,cAnd2);
 		
-		System.out.println(coach.seleccionarParticipantes2(cFinal));
+		
+		//System.out.println(coach.seleccionarParticipantes(cEdad));
 		
 	}
 

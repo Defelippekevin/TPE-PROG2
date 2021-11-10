@@ -22,6 +22,8 @@ public abstract class ElementoBanda {
 	
 	public abstract ElementoBanda getCopia(Criterio c);
 	
+	public abstract ArrayList<ElementoBanda> seleccionParticipantes(Criterio c);
+	
 	public abstract double getEdad();
 
 	public String getNombre() {

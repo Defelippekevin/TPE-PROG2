@@ -10,6 +10,4 @@ public class CaracterSimple extends Caracter {
 		return true;
 	}
 
-
-
 }

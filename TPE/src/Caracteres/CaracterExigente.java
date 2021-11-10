@@ -3,7 +3,7 @@ package Caracteres;
 import Sistema.ElementoBanda;
 
 
-//PREGUNTAR SI SE PUEDE HACER 
+//BORRAR CARACTER USAR CRITERIOS
 public class CaracterExigente extends Caracter {
 
 	private String instrumento;

@@ -20,13 +20,15 @@ public class GrupoMusical extends ElementoBanda {
 	}
 
 	@Override
+
+	// La idea es hacerlo al revés
 	public ArrayList<String> getGeneros() {
 		ArrayList<String> generos = new ArrayList<>();
 		generos.addAll(elementos.get(0).getGeneros());
 		for (ElementoBanda e : elementos) {
-			for (int i = 0; i < e.getGeneros().size(); i++) {
-				if (generos.contains(e.getGeneros().get(i))) {
-					generos.add(e.getGeneros().get(i));
+			for (int i = 0; i < generos.size(); i++) {
+				if(!e.getGeneros().contains(generos.get(i))) {
+					generos.remove(i);
 				}
 			}
 		}
@@ -89,11 +91,19 @@ public class GrupoMusical extends ElementoBanda {
 	}
 
 	public String toString() {
-		String nombre = "";
-		for (ElementoBanda e : elementos) {
-			nombre += " " + e.getNombre();
+		return this.getNombre();
+	}
+
+	@Override
+	public ArrayList<ElementoBanda> seleccionParticipantes(Criterio c) {
+		ArrayList<ElementoBanda> seleccionP = new ArrayList<>();
+		if (c.cumple(this)) {
+			seleccionP.add(this);
 		}
-		return this.getNombre() + nombre;
+		for (ElementoBanda e : elementos) {
+			seleccionP.addAll(e.seleccionParticipantes(c));
+		}
+		return seleccionP;
 	}
 
 }

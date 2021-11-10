@@ -2,6 +2,7 @@ package Sistema;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 import Caracteres.Caracter;
 import Criterios.Criterio;
@@ -50,25 +51,30 @@ public class Coach {
 		return edad / contador;
 	}
 
-	public ArrayList<ElementoBanda> seleccionarParticipantes(Criterio c) { 
+	public ArrayList<ElementoBanda> seleccionarParticipantes(Criterio c) {
 		ArrayList<ElementoBanda> participantesCumplen = new ArrayList<>();
-		for (int i = 0; i < participantes.size(); i++) {
-			if (c.cumple(participantes.get(i))) {
-				participantesCumplen.add(participantes.get(i));
-			}
+		for(ElementoBanda e:participantes) {
+			participantesCumplen.addAll(e.seleccionParticipantes(c));
 		}
 		return participantesCumplen;
 	}
 
-	public ArrayList<ElementoBanda> seleccionarParticipantes2(Criterio c) { 
+	public ArrayList<ElementoBanda> copiaRestrigida(Criterio c) {
 		ArrayList<ElementoBanda> participantesCumplen = new ArrayList<>();
-		for(ElementoBanda e:participantes) {
+		for (ElementoBanda e : participantes) {
 			participantesCumplen.add(e.getCopia(c));
 		}
 		return participantesCumplen;
 	}
-	
-	
+
+	public ArrayList<ElementoBanda> ordenPorAptitud(Comparator comp) {
+		ArrayList<ElementoBanda> participantesMasAptos = new ArrayList<>(participantes);
+		Collections.sort(participantesMasAptos, comp);
+		Collections.reverse(participantesMasAptos);
+		return participantesMasAptos;
+
+	}
+
 	public ArrayList<String> organizarIdiomas() {
 		ArrayList<String> elementos = new ArrayList<>();
 		for (ElementoBanda p : participantes) {
@@ -116,9 +122,5 @@ public class Coach {
 		}
 		return parti;
 	}
-
-	
-
-
 
 }

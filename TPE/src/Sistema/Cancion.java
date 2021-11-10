@@ -1,12 +1,14 @@
 package Sistema;
 
-
 import java.util.ArrayList;
+
+import Criterios.Criterio;
 
 public class Cancion {
 	private String titulo, idioma, letra;
 	private ArrayList<String> generosMusicales;
 	private ArrayList<String> instrumentosNecesarios;
+	private Criterio sePuedeCantar;
 
 	public Cancion(String titulo, String idioma, String letra) {
 		super();
@@ -17,6 +19,12 @@ public class Cancion {
 		this.instrumentosNecesarios = new ArrayList<>();
 	}
 
+	//crear el set y los criterios de cantor
+	
+	public boolean PuedeCantar(Participante p) {
+		return sePuedeCantar.cumple(p);
+	}
+	
 	public String getTitulo() {
 		return titulo;
 	}

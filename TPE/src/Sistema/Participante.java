@@ -90,10 +90,19 @@ public class Participante extends ElementoBanda {
 
 	@Override
 	public ElementoBanda getCopia(Criterio c) {
-		if(c.cumple(this)) {
+		if (c.cumple(this)) {
 			return new Participante(this.getNombre(), this.getEdad());
 		}
 		return null;
+	}
+
+	@Override
+	public ArrayList<ElementoBanda> seleccionParticipantes(Criterio c) {
+		ArrayList<ElementoBanda> participanteApto = new ArrayList<>();
+		if(c.cumple(this)) {
+			participanteApto.add(this);
+		}
+		return participanteApto;
 	}
 
 }
