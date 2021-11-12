@@ -28,7 +28,6 @@ public class Produccion {
 	}
 
 	public int batalla(ElementoBanda p1, ElementoBanda p2) {
-
 		return criterioBatalla.compare(p1, p2);
 /*
 		if (resultado == 0) {
@@ -43,16 +42,12 @@ public class Produccion {
 	
 	
 	public String ganador(ElementoBanda p1, ElementoBanda p2) {
-		
-		
 		int resultado = batalla(p1,p2);
-		
 		if(resultado >0) {
 			return p1.getNombre();
 		}else if( resultado <0) {
 			return p2.getNombre();
 		}
-		
 		return "Empate";
 	}
 	

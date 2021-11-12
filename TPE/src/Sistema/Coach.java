@@ -3,8 +3,6 @@ package Sistema;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
-import Caracteres.Caracter;
 import Criterios.Criterio;
 
 public class Coach {
@@ -15,13 +13,13 @@ public class Coach {
 	public Coach(String nombre, Criterio criterioComportamiento) {
 		super();
 		this.nombre = nombre;
-		
+
 		this.criterioComportamiento = criterioComportamiento;
 		this.participantes = new ArrayList<>();
 	}
 
 	public void agregarAlEquipo(ElementoBanda p) {
-		if (criterioComportamiento.cumple(p)) {
+		if (criterioComportamiento.cumple(p) && p != null) {
 			participantes.add(p);
 		}
 	}
@@ -37,7 +35,7 @@ public class Coach {
 	public Criterio getComportamiento() {
 		return criterioComportamiento;
 	}
-	
+
 	public void setComportamiento(Criterio nuevoComportamiento) {
 		this.criterioComportamiento = nuevoComportamiento;
 	}
@@ -54,7 +52,7 @@ public class Coach {
 
 	public ArrayList<ElementoBanda> seleccionarParticipantes(Criterio c) {
 		ArrayList<ElementoBanda> participantesCumplen = new ArrayList<>();
-		for(ElementoBanda e:participantes) {
+		for (ElementoBanda e : participantes) {
 			participantesCumplen.addAll(e.seleccionParticipantes(c));
 		}
 		return participantesCumplen;
@@ -86,6 +84,7 @@ public class Coach {
 			}
 
 		}
+		Collections.sort(elementos);
 		return elementos;
 	}
 
@@ -99,6 +98,7 @@ public class Coach {
 			}
 
 		}
+		Collections.sort(elementos);
 		return elementos;
 	}
 
