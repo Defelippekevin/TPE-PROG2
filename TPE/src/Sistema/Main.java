@@ -1,7 +1,8 @@
 package Sistema;
 
 import Caracteres.CaracterExigente;
-import Caracteres.CaracterSimple;
+import Comparadores.batallaIdiomas;
+import Criterios.CriterioSimple;
 import Criterios.Criterio;
 import Criterios.CriterioAnd;
 import Criterios.CriterioEdad;
@@ -13,11 +14,13 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Produccion prod = new Produccion();
+		
+		
+		Produccion prod = new Produccion(new batallaIdiomas());
 
-		Coach coach = new Coach("Mario", new CaracterSimple());
+		Coach coach = new Coach("Mario", new CriterioSimple());
 
-		Coach c2 = new Coach("Mario", new CaracterExigente("Flauta", "Rock", "Ingles"));
+		Coach c2 = new Coach("Mario", new CriterioAnd(new CriterioEdad(30),new CriterioIdioma("Ingles")));
 
 		Participante p1 = new Participante("Diego", 20);
 
@@ -42,6 +45,7 @@ public class Main {
 
 		p1.agregarIdioma("Ingles");
 		p1.agregarIdioma("Español");
+		p1.agregarIdioma("chino");
 		p1.agregarGeneroMusical("Rock");
 		p1.agregarGeneroMusical("HEAVY METAL");
 		p1.agregarInstrumento("Guitarra");
@@ -72,8 +76,9 @@ public class Main {
 		System.out.println(banda2.getGeneros());
 		//System.out.println(banda1.getIdiomas());
 		//System.out.println(banda1.getInstrumentos());
+		
 		//CONSULTAR PORQUE EXPLOTA CUANDO INTEGRAS BANDA VACIA
-		//System.out.println(banda1.getEdad());
+		System.out.println(banda1.getEdad());
 		
 		
 		//PREGUNTAR PORQUE NO AGREGA A LARRY
@@ -89,6 +94,10 @@ public class Main {
 		
 		
 		//System.out.println(coach.seleccionarParticipantes(cEdad));
+		
+		
+		System.out.println(prod.ganador(p1, p2));
+		
 		
 	}
 

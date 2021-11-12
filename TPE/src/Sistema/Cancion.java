@@ -10,19 +10,24 @@ public class Cancion {
 	private ArrayList<String> instrumentosNecesarios;
 	private Criterio sePuedeCantar;
 
-	public Cancion(String titulo, String idioma, String letra) {
+	public Cancion(String titulo, String idioma, String letra,Criterio sePuedeCantar) {
 		super();
 		this.titulo = titulo;
 		this.idioma = idioma;
 		this.letra = letra;
 		this.generosMusicales = new ArrayList<>();
 		this.instrumentosNecesarios = new ArrayList<>();
+		this.sePuedeCantar = sePuedeCantar;
 	}
 
 	//crear el set y los criterios de cantor
 	
 	public boolean PuedeCantar(Participante p) {
 		return sePuedeCantar.cumple(p);
+	}
+	
+	public void setCriterioCantor(Criterio criterioNuevo) {
+		this.sePuedeCantar = criterioNuevo;
 	}
 	
 	public String getTitulo() {

@@ -9,18 +9,19 @@ import Criterios.Criterio;
 
 public class Coach {
 	private String nombre;
-	private Caracter caracter;
+	private Criterio criterioComportamiento;
 	private ArrayList<ElementoBanda> participantes;
 
-	public Coach(String nombre, Caracter caracter) {
+	public Coach(String nombre, Criterio criterioComportamiento) {
 		super();
 		this.nombre = nombre;
-		this.caracter = caracter;
+		
+		this.criterioComportamiento = criterioComportamiento;
 		this.participantes = new ArrayList<>();
 	}
 
 	public void agregarAlEquipo(ElementoBanda p) {
-		if (caracter.aceptarArtista(p)) {
+		if (criterioComportamiento.cumple(p)) {
 			participantes.add(p);
 		}
 	}
@@ -33,12 +34,12 @@ public class Coach {
 		this.nombre = nombre;
 	}
 
-	public Caracter getCaracter() {
-		return caracter;
+	public Criterio getComportamiento() {
+		return criterioComportamiento;
 	}
-
-	public void setCaracter(Caracter caracter) {
-		this.caracter = caracter;
+	
+	public void setComportamiento(Criterio nuevoComportamiento) {
+		this.criterioComportamiento = nuevoComportamiento;
 	}
 
 	public double promedioEdadParticipantes() {

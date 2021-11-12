@@ -25,6 +25,7 @@ public class GrupoMusical extends ElementoBanda {
 	public ArrayList<String> getGeneros() {
 		ArrayList<String> generos = new ArrayList<>();
 		generos.addAll(elementos.get(0).getGeneros());
+		
 		for (ElementoBanda e : elementos) {
 			for (int i = 0; i < generos.size(); i++) {
 				if(!e.getGeneros().contains(generos.get(i))) {

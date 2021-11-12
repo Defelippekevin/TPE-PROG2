@@ -9,9 +9,10 @@ public class Produccion {
 	private ArrayList<Coach> jurados;
 	private Comparator criterioBatalla;
 
-	public Produccion() {
+	public Produccion(Comparator criterioBatalla) {
 		this.canciones = new ArrayList<>();
 		this.jurados = new ArrayList<>();
+		this.criterioBatalla= criterioBatalla;
 	}
 
 	public void addCancion(Cancion c) {
@@ -26,13 +27,35 @@ public class Produccion {
 		this.criterioBatalla = comp;
 	}
 
-	public ElementoBanda batalla(ElementoBanda p1, ElementoBanda p2) {
-		//verificar el tema del empate
-		if (criterioBatalla.compare(p1, p2) == 1) {
-			return p1;
+	public int batalla(ElementoBanda p1, ElementoBanda p2) {
+
+		return criterioBatalla.compare(p1, p2);
+/*
+		if (resultado == 0) {
+			return resultado;
+		} else if (resultado > 0) {
+			return 1;
 		} else {
-			return p2;
-		} 
+			return -1;
+		}
+		*/
 	}
+	
+	
+	public String ganador(ElementoBanda p1, ElementoBanda p2) {
+		
+		
+		int resultado = batalla(p1,p2);
+		
+		if(resultado >0) {
+			return p1.getNombre();
+		}else if( resultado <0) {
+			return p2.getNombre();
+		}
+		
+		return "Empate";
+	}
+	
+	
 
 }
