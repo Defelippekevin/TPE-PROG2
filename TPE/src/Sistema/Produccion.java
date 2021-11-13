@@ -29,15 +29,6 @@ public class Produccion {
 
 	public int batalla(ElementoBanda p1, ElementoBanda p2) {
 		return criterioBatalla.compare(p1, p2);
-/*
-		if (resultado == 0) {
-			return resultado;
-		} else if (resultado > 0) {
-			return 1;
-		} else {
-			return -1;
-		}
-		*/
 	}
 	
 	

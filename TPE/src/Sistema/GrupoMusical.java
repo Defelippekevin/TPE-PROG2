@@ -1,6 +1,8 @@
 package Sistema;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,10 +27,10 @@ public class GrupoMusical extends ElementoBanda {
 	public ArrayList<String> getGeneros() {
 		ArrayList<String> generos = new ArrayList<>();
 		generos.addAll(elementos.get(0).getGeneros());
-		
+
 		for (ElementoBanda e : elementos) {
 			for (int i = 0; i < generos.size(); i++) {
-				if(!e.getGeneros().contains(generos.get(i))) {
+				if (!e.getGeneros().contains(generos.get(i))) {
 					generos.remove(i);
 				}
 			}
@@ -105,6 +107,15 @@ public class GrupoMusical extends ElementoBanda {
 			seleccionP.addAll(e.seleccionParticipantes(c));
 		}
 		return seleccionP;
+	}
+
+	@Override
+	public ArrayList<ElementoBanda> seleccionParticipantesOrdenados() {
+		ArrayList<ElementoBanda> elementosBanda = new ArrayList<>();
+		for (ElementoBanda e : elementos) {
+			elementosBanda.addAll(e.seleccionParticipantesOrdenados());
+		}
+		return elementosBanda;
 	}
 
 }

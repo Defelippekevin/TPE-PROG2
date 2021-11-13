@@ -1,6 +1,7 @@
 package Sistema;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import Criterios.Criterio;
 
@@ -25,6 +26,8 @@ public abstract class ElementoBanda {
 	public abstract ArrayList<ElementoBanda> seleccionParticipantes(Criterio c);
 	
 	public abstract double getEdad();
+	
+	public abstract ArrayList<ElementoBanda> seleccionParticipantesOrdenados();
 
 	public String getNombre() {
 		return nombre;

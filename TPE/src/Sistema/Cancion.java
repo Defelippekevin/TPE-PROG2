@@ -22,7 +22,7 @@ public class Cancion {
 
 	//crear el set y los criterios de cantor
 	
-	public boolean PuedeCantar(Participante p) {
+	public boolean puedeCantar(ElementoBanda p) {
 		return sePuedeCantar.cumple(p);
 	}
 	

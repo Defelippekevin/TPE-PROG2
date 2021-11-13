@@ -1,6 +1,7 @@
 package Sistema;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import Criterios.Criterio;
 
@@ -99,10 +100,17 @@ public class Participante extends ElementoBanda {
 	@Override
 	public ArrayList<ElementoBanda> seleccionParticipantes(Criterio c) {
 		ArrayList<ElementoBanda> participanteApto = new ArrayList<>();
-		if(c.cumple(this)) {
+		if (c.cumple(this)) {
 			participanteApto.add(this);
 		}
 		return participanteApto;
+	}
+
+	@Override
+	public ArrayList<ElementoBanda> seleccionParticipantesOrdenados() {
+		ArrayList<ElementoBanda> elementos = new ArrayList<>();
+		elementos.add(this);
+		return elementos;
 	}
 
 }
