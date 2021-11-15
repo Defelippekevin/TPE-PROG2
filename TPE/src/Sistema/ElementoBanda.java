@@ -27,7 +27,6 @@ public abstract class ElementoBanda {
 	
 	public abstract double getEdad();
 	
-	public abstract ArrayList<ElementoBanda> seleccionParticipantesOrdenados();
 
 	public String getNombre() {
 		return nombre;

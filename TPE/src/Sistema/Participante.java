@@ -106,11 +106,4 @@ public class Participante extends ElementoBanda {
 		return participanteApto;
 	}
 
-	@Override
-	public ArrayList<ElementoBanda> seleccionParticipantesOrdenados() {
-		ArrayList<ElementoBanda> elementos = new ArrayList<>();
-		elementos.add(this);
-		return elementos;
-	}
-
 }

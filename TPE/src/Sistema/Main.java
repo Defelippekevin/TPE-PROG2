@@ -189,8 +189,16 @@ public class Main {
 		//----------------------------------------------------------------
 		// COACH ORDENAR LOS POSIBLES GANADORES
 		
-		System.out.println(coach1.obtenerParticipantesOrdenados(compCombinado));
-		System.out.println(coach2.obtenerParticipantesOrdenados(compCombinado));
+		System.out.println(coach1.ordenPorAptitud(compCombinado));
+		System.out.println(coach2.ordenPorAptitud(compCombinado));
+		
+		
+		//----------------------------------------------------------------
+		//Batalla mejores participantes
+		
+		ElementoBanda pmejor1 = coach1.ordenPorAptitud(compCombinado).get(0);
+		ElementoBanda pmejor2 = coach1.ordenPorAptitud(compCombinado).get(0);
+		System.out.println("GANADOR: " + produccion.ganador(pmejor2, pmejor2));
 		
 	}
 

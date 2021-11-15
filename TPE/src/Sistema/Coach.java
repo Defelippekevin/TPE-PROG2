@@ -73,16 +73,6 @@ public class Coach {
 		return participantesMasAptos;
 	}
 
-	public ArrayList<ElementoBanda> obtenerParticipantesOrdenados(Comparator comp) {
-		ArrayList<ElementoBanda> participantesMasAptos = new ArrayList<>(participantes);
-		for (ElementoBanda e : participantes) {
-			participantesMasAptos.addAll(e.seleccionParticipantesOrdenados());
-		}
-		Collections.sort(participantesMasAptos, comp);
-		Collections.reverse(participantesMasAptos);
-		return participantesMasAptos;
-	}
-
 	public ArrayList<String> organizarIdiomas() {
 		ArrayList<String> elementos = new ArrayList<>();
 		for (ElementoBanda p : participantes) {

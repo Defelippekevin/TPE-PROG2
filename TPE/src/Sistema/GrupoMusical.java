@@ -109,13 +109,4 @@ public class GrupoMusical extends ElementoBanda {
 		return seleccionP;
 	}
 
-	@Override
-	public ArrayList<ElementoBanda> seleccionParticipantesOrdenados() {
-		ArrayList<ElementoBanda> elementosBanda = new ArrayList<>();
-		for (ElementoBanda e : elementos) {
-			elementosBanda.addAll(e.seleccionParticipantesOrdenados());
-		}
-		return elementosBanda;
-	}
-
 }
