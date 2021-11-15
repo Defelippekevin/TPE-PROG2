@@ -1,6 +1,6 @@
 package Sistema;
 
-import java.util.Comparator;
+import java.util.Comparator; 
 
 import Comparadores.batallaEdad;
 import Comparadores.batallaGeneros;
@@ -186,12 +186,12 @@ public class Main {
 
 		// ----------------------------------------------------------------
 		// BATALLA EN CASO DE EMPATE
-		Comparator batallaEdad = new batallaEdad();
-		Comparator batallaGenero = new batallaGeneros();
-		Comparator batallaIdiomas = new batallaIdiomas();
-		Comparator batallaInstrumento = new batallaInstrumento();
-		Comparator compCombinado = new comparadorAND(batallaEdad, batallaGenero);
-		Comparator compCombinado2 = new comparadorAND(compCombinado, batallaIdiomas);
+		Comparator<ElementoBanda> batallaEdad = new batallaEdad();
+		Comparator<ElementoBanda> batallaGenero = new batallaGeneros();
+		Comparator<ElementoBanda> batallaIdiomas = new batallaIdiomas();
+		Comparator<ElementoBanda> batallaInstrumento = new batallaInstrumento();
+		Comparator<ElementoBanda> compCombinado = new comparadorAND(batallaEdad, batallaGenero);
+		Comparator<ElementoBanda> compCombinado2 = new comparadorAND(compCombinado, batallaIdiomas);
 		produccion.setCriterioBatalla(compCombinado);
 		System.out.println("BATALLA PRIMER ENFRENTAMIENTO: " + p1.getNombre() + " VS " + p2.getNombre() + " Resultado: "
 				+ produccion.ganador(p1, p2));
@@ -214,5 +214,4 @@ public class Main {
 				+ " RESULTADO: " + produccion.ganador(pmejor1, pmejor2));
 
 	}
-
 }

@@ -1,6 +1,6 @@
 package Sistema;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Collections;
 import java.util.Comparator;
 import Criterios.Criterio;
@@ -66,7 +66,7 @@ public class Coach {
 		return participantesCumplen;
 	}
 
-	public ArrayList<ElementoBanda> ordenPorAptitud(Comparator comp) {
+	public ArrayList<ElementoBanda> ordenPorAptitud(Comparator<ElementoBanda> comp) {
 		ArrayList<ElementoBanda> participantesMasAptos = new ArrayList<>(participantes);
 		Collections.sort(participantesMasAptos, comp);
 		Collections.reverse(participantesMasAptos);

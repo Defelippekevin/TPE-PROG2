@@ -7,9 +7,9 @@ public class Produccion {
 
 	private ArrayList<Cancion> canciones;
 	private ArrayList<Coach> jurados;
-	private Comparator criterioBatalla;
+	private Comparator<ElementoBanda> criterioBatalla;
 
-	public Produccion(Comparator criterioBatalla) {
+	public Produccion(Comparator<ElementoBanda> criterioBatalla) {
 		this.canciones = new ArrayList<>();
 		this.jurados = new ArrayList<>();
 		this.criterioBatalla= criterioBatalla;
@@ -23,7 +23,7 @@ public class Produccion {
 		jurados.add(c);
 	}
 
-	public void setCriterioBatalla(Comparator comp) {
+	public void setCriterioBatalla(Comparator<ElementoBanda> comp) {
 		this.criterioBatalla = comp;
 	}
 

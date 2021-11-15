@@ -1,7 +1,7 @@
 package Criterios;
 
-import Sistema.ElementoBanda;
-import Sistema.Participante;
+import Sistema.ElementoBanda; 
+
 
 public class CriterioGenero extends Criterio {
 

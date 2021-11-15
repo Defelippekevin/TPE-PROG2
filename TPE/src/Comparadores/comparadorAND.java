@@ -6,10 +6,10 @@ import Sistema.ElementoBanda;
 
 public class comparadorAND implements Comparator<ElementoBanda> {
 
-	private Comparator comp1;
-	private Comparator comp2;
+	private Comparator<ElementoBanda> comp1;
+	private Comparator<ElementoBanda> comp2;
 
-	public comparadorAND(Comparator comp1, Comparator comp2) {
+	public comparadorAND(Comparator<ElementoBanda> comp1, Comparator<ElementoBanda> comp2) {
 		super();
 		this.comp1 = comp1;
 		this.comp2 = comp2;
