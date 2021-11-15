@@ -38,6 +38,8 @@ public class Main {
 		Participante p6 = new Participante("AXEL ROSE", 75);
 
 		Participante p7 = new Participante("INDIO SOLARI", 78);
+		
+		Participante p8 = new Participante("COSME FULANITO", 18);
 
 		GrupoMusical banda1 = new GrupoMusical("BANDA 1");
 
@@ -56,8 +58,10 @@ public class Main {
 		p1.agregarIdioma("Ingles");
 		p1.agregarIdioma("Español");
 		p1.agregarIdioma("chino");
+		p1.agregarIdioma("Portugues");
 		p1.agregarGeneroMusical("Rock");
 		p1.agregarGeneroMusical("HEAVY METAL");
+		p1.agregarGeneroMusical("Lirico");
 		p1.agregarInstrumento("Guitarra");
 
 		p2.agregarIdioma("Ingles");
@@ -100,23 +104,23 @@ public class Main {
 		p7.agregarInstrumento("Flauta");
 		p7.agregarInstrumento("Guitarra");
 		p7.agregarInstrumento("Teclado");
+		
+		p8.agregarIdioma("Ingles");
 
 		banda1.agregarElemento(banda2);
 
 		coach1.agregarAlEquipo(banda1);
-
+		
+		//COSME FULANITO NO PUEDE SER AGREGADO POR CRITERIO DEL COACH
+		
+		coach2.agregarAlEquipo(p8);
+		
 		coach2.agregarAlEquipo(banda3);
+		
+		//System.out.println(coach2.seleccionarParticipantes(new CriterioSimple()));
 
-		// System.out.println(banda2.getGeneros());
-		// System.out.println(banda1.getIdiomas());
-		// System.out.println(banda1.getInstrumentos());
 
-		// CONSULTAR PORQUE EXPLOTA CUANDO INTEGRAS BANDA VACIA
-		System.out.println(banda1.getEdad());
-
-		// PREGUNTAR PORQUE NO AGREGA AL ARRAY
-
-		Criterio cEdad = new CriterioEdad(51);
+		Criterio cEdad = new CriterioEdad(18);
 		Criterio cGenero = new CriterioGenero("Rock");
 		Criterio cIdioma = new CriterioIdioma("Ingles");
 		Criterio cInst = new CriterioInstrumentos("Guitarra");
@@ -124,9 +128,6 @@ public class Main {
 		Criterio cAnd1 = new CriterioAnd(cEdad, cGenero);
 		Criterio cAnd2 = new CriterioAnd(cIdioma, cInst);
 		Criterio cFinal = new CriterioAnd(cAnd1, cAnd2);
-
-		// System.out.println(coach.seleccionarParticipantes(cEdad));
-		// System.out.println(prod.ganador(p1, p2));
 
 		System.out.println("PROMEDIO DE EDAD BANDA 1: " + banda1.getEdad());
 
@@ -158,6 +159,14 @@ public class Main {
 
 		System.out.println("COACH 2 FILTRO IDIOMA: " + coach2.seleccionarParticipantes(cIdioma));
 
+		// Criterio basado en los requerimientos de WelcomeToTheJungle
+
+		Criterio criterioCancion = new CriterioAnd(cAnd2, cGenero);
+
+		System.out.println("PUEDEN CANTAR : " + coach2.seleccionarParticipantes(criterioCancion));
+
+		System.out.println("MAYORES DE EDAD COACH 2 : " + coach2.seleccionarParticipantes(cEdad));
+
 		// ------------------------------------------------
 
 		Criterio temaMusical = new CriterioIdioma("Ingles");
@@ -173,33 +182,37 @@ public class Main {
 		WelcomeToTheJungle.agregarGeneroMusical("Bateria");
 		WelcomeToTheJungle.agregarGeneroMusical("Rock");
 
-		System.out.println("FILTRO CANCION: " + WelcomeToTheJungle.puedeCantar(banda1));
+		System.out.println("PUEDE BANDA UNO CANTAR WELCOME TO THE JUNGLE? " + WelcomeToTheJungle.puedeCantar(banda1));
 
-		//----------------------------------------------------------------
+		// ----------------------------------------------------------------
 		// BATALLA EN CASO DE EMPATE
 		Comparator batallaEdad = new batallaEdad();
 		Comparator batallaGenero = new batallaGeneros();
 		Comparator batallaIdiomas = new batallaIdiomas();
 		Comparator batallaInstrumento = new batallaInstrumento();
-		
 		Comparator compCombinado = new comparadorAND(batallaEdad, batallaGenero);
+		Comparator compCombinado2 = new comparadorAND(compCombinado, batallaIdiomas);
 		produccion.setCriterioBatalla(compCombinado);
-		System.out.println(produccion.ganador(p1, p2));
-		
-		//----------------------------------------------------------------
+		System.out.println("BATALLA PRIMER ENFRENTAMIENTO: " + p1.getNombre() + " VS " + p2.getNombre() + " Resultado: "
+				+ produccion.ganador(p1, p2));
+		produccion.setCriterioBatalla(compCombinado2);
+		System.out.println("BATALLA DESEMPATE: " + p1.getNombre() + " VS " + p2.getNombre() + " Resultado: "
+				+ produccion.ganador(p1, p2));
+
+		// ----------------------------------------------------------------
 		// COACH ORDENAR LOS POSIBLES GANADORES
-		
-		System.out.println(coach1.ordenPorAptitud(compCombinado));
-		System.out.println(coach2.ordenPorAptitud(compCombinado));
-		
-		
-		//----------------------------------------------------------------
-		//Batalla mejores participantes
-		
-		ElementoBanda pmejor1 = coach1.ordenPorAptitud(compCombinado).get(0);
-		ElementoBanda pmejor2 = coach1.ordenPorAptitud(compCombinado).get(0);
-		System.out.println("GANADOR: " + produccion.ganador(pmejor2, pmejor2));
-		
+
+		System.out.println("MEJOR PARTICIPANTE COACH 1: " + coach1.ordenPorAptitud(compCombinado));
+		System.out.println("MEJOR PARTICIPANTE COACH 2: " + coach2.ordenPorAptitud(compCombinado));
+
+		// ----------------------------------------------------------------
+		// Batalla mejores participantes
+
+		ElementoBanda pmejor1 = coach1.ordenPorAptitud(batallaEdad).get(0);
+		ElementoBanda pmejor2 = coach2.ordenPorAptitud(batallaEdad).get(0);
+		System.out.println("Batalla mejores participantes: " + pmejor1.getNombre() + " VS " + pmejor2.getNombre() + " "
+				+ " RESULTADO: " + produccion.ganador(pmejor1, pmejor2));
+
 	}
 
 }
